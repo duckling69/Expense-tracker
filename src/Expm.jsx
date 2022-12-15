@@ -157,6 +157,7 @@ function Expm() {
 
                 </div>
                 <div className='max-w-[25vw] text-center m-auto'>
+
                     <Transactionchart style={{ width: "300px" }} className=''></Transactionchart>
                 </div>
 
