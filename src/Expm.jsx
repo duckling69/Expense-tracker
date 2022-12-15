@@ -57,6 +57,16 @@ function Expm() {
             setAmount(Amount);
         }
         console.log(Amount);
+        amountMap = Amount.map((set) => set);
+        setAmountMap(amountMap);
+        TransactionData = {
+            datasets: [{
+                label: arr.map((arr) => arr),
+                data: amountMap,
+                backgroundColor: ["red", "green", "orange"]
+            }]
+        }
+        setTransactionData(TransactionData)
     }
     const deleteItem = (itemTodelete) => {
         setHistory(prevHistory => prevHistory.filter(history => history.id !== itemTodelete.id));
@@ -73,23 +83,32 @@ function Expm() {
             setAmount(Amount);
         }
         console.log(Amount);
-        // setTransactionData(TransactionData.datasets: {
-        //     label:
-        // })
+        amountMap = Amount.map((set) => set);
+        setAmountMap(amountMap);
+        console.log(amountMap)
+        TransactionData = {
+            datasets: [{
+                label: arr.map((arr) => arr),
+                data: amountMap,
+                backgroundColor: ["red", "green", "orange"]
+            }]
+        }
+        setTransactionData(TransactionData)
     }
-    // const [TransactionData, setTransactionData] = useState({
-    //     datasets: [{
-    //         label: arr.map((arr) => arr),
-    //         data: [],
-    //         backgroundColor: ["red", "green", "orange"]
-    //     }]
-    // })
-    // function Transactionchart() {
+    let [amountMap, setAmountMap] = useState(Amount.map((set) => set));
+    let [TransactionData, setTransactionData] = useState({
+        datasets: [{
+            label: arr.map((arr) => arr),
+            data: amountMap,
+            backgroundColor: ["red", "green", "orange"]
+        }]
+    })
+    function Transactionchart() {
 
-    //     return (
-    //         <Pie data={TransactionData}></Pie>
-    //     )
-    // }
+        return (
+            <Pie data={TransactionData}></Pie>
+        )
+    }
     return (
         <div className=' bg-[#FFFBEB] w-full h-[100vh] font-mono'>
             <div className='flex flex-col mx-[25vw] max border-2 border-gray-500 shadow-2xl text-gray-800 bg-[#CCD6A6] h-full'>
@@ -137,7 +156,10 @@ function Expm() {
                     </div>
 
                 </div>
-                {/* <Transactionchart className='max-h-[25vh] max-w-[25vw]'></Transactionchart> */}
+                <div className='max-w-[25vw] text-center m-auto'>
+                    <Transactionchart style={{ width: "300px" }} className=''></Transactionchart>
+                </div>
+
             </div>
         </div>
     )
